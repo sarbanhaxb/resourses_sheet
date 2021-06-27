@@ -40,6 +40,8 @@ class resourses_sheet(QMainWindow):
         geogrids_nt = 0
         thermal = 0
         bituminous = 0
+        sands = 0
+        geomembranes = 0
 
         for index, row in df.iterrows():
             """расчет электродов"""
@@ -56,6 +58,10 @@ class resourses_sheet(QMainWindow):
             if (str(row['code']).lower().find('фссц-01.7.12.07') == 0 or str(row['code']).lower().find('01.7.12.07') == 0) and str(row['name']).lower().find('георешетка ') == 0:
                 if str(row['unit']).lower() == 'м2':
                     geogrids_nt += float(row['amount'])
+            """расчет геомембраны 01.7.12.04"""
+            if (str(row['code']).lower().find('01.7.12.04') == 0 or str(row['code']).lower().find('фссц-01.7.12.04') == 0) and (str(row['name']).lower().find('геомембрана') == 0):
+                if str(row['unit']).lower() == 'м3':
+                    geomembranes += float(row['amount'])
             """расчет теплоизоляционного материала"""
             if (str(row['code']).lower().find('фссц-12.2.04') == 0 or str(row['code']).lower().find('12.2.04') == 0) and (str(row['name']).lower().find('маты') == 0 or str(row['name']).lower().find('пакеты') == 0):
                 if str(row['unit']).lower() == 'м3':
@@ -97,6 +103,31 @@ class resourses_sheet(QMainWindow):
                     paints += float(row['amount'])
                 elif str(row['unit']).lower() == 'т':
                     paints += float(row['amount']) * 1000
+            """расчет песка"""
+            if (str(row['code']).lower().find('02.3.01') == 0 or str(row['code']).lower().find('фссц-02.3.01') == 0 or str(row['code']).lower().find('данные заказчика') == 0) and (str(row['name']).lower().find('песок') == 0):
+                if str(row['unit']).lower() == 'м3':
+                    sands += float(row['amount'])*1.6
+                elif str(row['unit']).lower() == 'кг':
+                    sands += float(row['amount'])
+                elif str(row['unit']).lower() == 'т':
+                    sands += float(row['amount'])*1000
+            if str(row['code']).lower().find('цена заказчика') == 0 and (str(row['name']).lower().find('песок') != -1):
+                print('yes')
+                if str(row['unit']).lower() == 'м3':
+                    sands += float(row['amount']) * 1.6
+                elif str(row['unit']).lower() == 'кг':
+                    sands += float(row['amount'])
+                elif str(row['unit']).lower() == 'т':
+                    sands += float(row['amount'])*1000
+            """расчет щебня"""
+            """расчет плит дорожных"""
+            """расчет металлоконструкций"""
+            """расчет стальных труб"""
+            """расчет цементного раствора"""
+            """расчет песчано-гравийного раствора"""
+            """расчет семян трав"""
+            """расчет удобрений"""
+            """"""
 
         global materials
         materials = [['Наименование основных строительных конструкций, изделий и материалов', 'Единица измерения', 'Всего']]
@@ -106,6 +137,8 @@ class resourses_sheet(QMainWindow):
         geogrids_nt = ['Нетканая георешетка', 'м2', round(geogrids_nt, 2)]
         thermal = ['Теплоизоляционный материал', 'м3', round(thermal, 2)]
         bituminous = ['Битумно-резиновая мастика', 'кг', round(bituminous, 2)]
+        sands = ['Песок', 'кг', round(sands, 2)]
+        geomembranes = ['Геомембрана', 'м2', round(geomembranes, 2)]
 
         if electrodes[2] != 0:
             materials.append(electrodes)
@@ -119,6 +152,10 @@ class resourses_sheet(QMainWindow):
             materials.append(thermal)
         if bituminous[2] != 0:
             materials.append(bituminous)
+        if sands[2] != 0:
+            materials.append(sands)
+        if geomembranes[2] != 0:
+            materials.append(geomembranes)
 
     def showDialog(self):
         try:
