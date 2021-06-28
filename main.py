@@ -42,6 +42,8 @@ class resourses_sheet(QMainWindow):
         bituminous = 0
         sands = 0
         geomembranes = 0
+        slabs = 0
+        semens = 0
 
         for index, row in df.iterrows():
             """расчет электродов"""
@@ -112,7 +114,6 @@ class resourses_sheet(QMainWindow):
                 elif str(row['unit']).lower() == 'т':
                     sands += float(row['amount'])*1000
             if str(row['code']).lower().find('цена заказчика') == 0 and (str(row['name']).lower().find('песок') != -1):
-                print('yes')
                 if str(row['unit']).lower() == 'м3':
                     sands += float(row['amount']) * 1.6
                 elif str(row['unit']).lower() == 'кг':
@@ -121,12 +122,22 @@ class resourses_sheet(QMainWindow):
                     sands += float(row['amount'])*1000
             """расчет щебня"""
             """расчет плит дорожных"""
+            if str(row['code']).lower().find('05.1.08.06-0063') != -1 and str(row['name']).lower().find('плиты дорожные') == 0:
+                if str(row['unit']).lower() == 'шт':
+                    slabs += float(row['amount'])*4.2
+
             """расчет металлоконструкций"""
             """расчет стальных труб"""
             """расчет цементного раствора"""
             """расчет песчано-гравийного раствора"""
             """расчет семян трав"""
+            if str(row['code']).lower().find('16.2.02.07') != -1 and str(row['name']).lower().find('семена') == 0:
+                if str(row['unit']).lower() == 'кг':
+                    semens += float(row['amount'])*4.2
             """расчет удобрений"""
+            if str(row['code']).lower().find('16.2.02.07') != -1 and str(row['name']).lower().find('семена') == 0:
+                if str(row['unit']).lower() == 'кг':
+                    semens += float(row['amount'])*4.2
             """"""
 
         global materials
@@ -139,6 +150,8 @@ class resourses_sheet(QMainWindow):
         bituminous = ['Битумно-резиновая мастика', 'кг', round(bituminous, 2)]
         sands = ['Песок', 'кг', round(sands, 2)]
         geomembranes = ['Геомембрана', 'м2', round(geomembranes, 2)]
+        slabs = ['Плиты дорожные', 'т', round(slabs, 2)]
+        semens = ['Семена трав', "кг", round(semens, 2)]
 
         if electrodes[2] != 0:
             materials.append(electrodes)
@@ -156,6 +169,10 @@ class resourses_sheet(QMainWindow):
             materials.append(sands)
         if geomembranes[2] != 0:
             materials.append(geomembranes)
+        if slabs[2] != 0:
+            materials.append(slabs)
+        if semens[2] != 0:
+            materials.append(semens)
 
     def showDialog(self):
         try:
