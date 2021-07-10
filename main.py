@@ -391,7 +391,7 @@ class resourses_sheet(QMainWindow):
                             wire += float(row['amount']) * 1000 * 0.728
                         elif str(row['name']).lower().find('95-450') != -1:
                             wire += float(row['amount']) * 1000 * 0.973
-                    elif str(row['name']).lower().find('пугв') != -1:
+                    elif str(row['name']).lower().find('пугв') != -1 and str(row['name']).lower().find('пв3') == -1:
                         if str(row['name']).lower().find('1х0,5-450') != -1:
                             wire += float(row['amount']) * 1000 * 0.010
                         elif str(row['name']).lower().find('1х0,75-450') != -1:
@@ -417,15 +417,15 @@ class resourses_sheet(QMainWindow):
                         elif str(row['name']).lower().find('1х95-450') != -1:
                             wire += float(row['amount']) * 1000 * 1.026
                     elif str(row['name']).lower().find('пв3') != -1:
-                        if str(row['name']).lower().find('2-450') != -1:
+                        if str(row['name']).lower().find(' 2-450') != -1:
                             wire += float(row['amount']) * 1000 * 0.01 # не точно
-                        elif str(row['name']).lower().find('3-450') != -1:
+                        elif str(row['name']).lower().find(' 3-450') != -1:
                             wire += float(row['amount']) * 1000 * 0.03 # не точно
-                        elif str(row['name']).lower().find('5-450') != -1:
+                        elif str(row['name']).lower().find(' 5-450') != -1:
                             wire += float(row['amount']) * 1000 * 0.062
                         elif str(row['name']).lower().find(' 6-450') != -1:
                             wire += float(row['amount']) * 1000 * 0.071
-                        elif str(row['name']).lower().find('8-450') != -1:
+                        elif str(row['name']).lower().find(' 8-450') != -1:
                             wire += float(row['amount']) * 1000 * 0.094
                         elif str(row['name']).lower().find('16-450') != -1:
                             wire += float(row['amount']) * 1000 * 0.182
