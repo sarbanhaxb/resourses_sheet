@@ -127,7 +127,6 @@ class resourses_sheet(QMainWindow):
             if str(row['code']).lower().find('05.1.08.06-0063') != -1 and str(row['name']).lower().find('плиты дорожные') == 0:
                 if str(row['unit']).lower() == 'шт':
                     slabs += float(row['amount'])*4.2
-
             """расчет металлоконструкций"""
             """расчет стальных труб"""
             """расчет цементного раствора"""
@@ -353,23 +352,142 @@ class resourses_sheet(QMainWindow):
                             wire += float(row['amount']) * 1000 * 0.074
                         elif str(row['name']).lower().find('3x6-450') != -1:
                             wire += float(row['amount']) * 1000 * 0.085
-
-                        #https://fgisrf.ru/fsscm/21.2.03.05/ закончил на строке 21.2.03.05-0032	Провод силовой установочный АППВ 3x6-450
-                    elif str(row['name']).lower().find('ВПИСАТЬ КЛЮЧЕВОЕ СЛОВО') != -1:
-                        if str(row['name']).lower().find('РАЗМЕРЫ КАБЕЛЯ') != -1:
-                            wire += float(row['amount']) * 1000 * 0.0
-                        elif str(row['name']).lower().find('РАЗМЕРЫ КАБЕЛЯ') != -1:
-                            wire += float(row['amount']) * 1000 * 0.0
-                        elif str(row['name']).lower().find('РАЗМЕРЫ КАБЕЛЯ') != -1:
-                            wire += float(row['amount']) * 1000 * 0.0
-                        elif str(row['name']).lower().find('РАЗМЕРЫ КАБЕЛЯ') != -1:
-                            wire += float(row['amount']) * 1000 * 0.0
-                        elif str(row['name']).lower().find('РАЗМЕРЫ КАБЕЛЯ') != -1:
-                            wire += float(row['amount']) * 1000 * 0.0
-                        elif str(row['name']).lower().find('РАЗМЕРЫ КАБЕЛЯ') != -1:
-                            wire += float(row['amount']) * 1000 * 0.0
-
-
+                    elif str(row['name']).lower().find('пв1') != -1:
+                        if str(row['name']).lower().find('0,5-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.0085
+                        elif str(row['name']).lower().find('0,75-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.0111
+                        elif str(row['name']).lower().find('1-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.0139
+                        elif str(row['name']).lower().find('1,2-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.017
+                        elif str(row['name']).lower().find('1,5-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.0186
+                        elif str(row['name']).lower().find('2-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.02 # не точно
+                        elif str(row['name']).lower().find('2,5-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.03
+                        elif str(row['name']).lower().find('3-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.038
+                        elif str(row['name']).lower().find('4-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.045
+                        elif str(row['name']).lower().find('5-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.062 # не точно
+                        elif str(row['name']).lower().find('6-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.0668
+                        elif str(row['name']).lower().find('8-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.090
+                        elif str(row['name']).lower().find('10 мм2') != -1:
+                            wire += float(row['amount']) * 1000 * 0.111
+                        elif str(row['name']).lower().find('16 мм2') != -1:
+                            wire += float(row['amount']) * 1000 * 0.180
+                        elif str(row['name']).lower().find('25-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.283
+                        elif str(row['name']).lower().find('35-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.381
+                        elif str(row['name']).lower().find('50-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.513
+                        elif str(row['name']).lower().find('70-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.728
+                        elif str(row['name']).lower().find('95-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.973
+                    elif str(row['name']).lower().find('пугв') != -1:
+                        if str(row['name']).lower().find('1х0,5-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.010
+                        elif str(row['name']).lower().find('1х0,75-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.012
+                        elif str(row['name']).lower().find('1х1-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.0154
+                        elif str(row['name']).lower().find('1х1,5-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.022
+                        elif str(row['name']).lower().find('1х2,5-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.0349
+                        elif str(row['name']).lower().find('1х4-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.0511
+                        elif str(row['name']).lower().find('1х10-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.122
+                        elif str(row['name']).lower().find('1х25-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.280
+                        elif str(row['name']).lower().find('1х35-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.397
+                        elif str(row['name']).lower().find('1х50-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.558
+                        elif str(row['name']).lower().find('1х70-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.761
+                        elif str(row['name']).lower().find('1х95-450') != -1:
+                            wire += float(row['amount']) * 1000 * 1.026
+                    elif str(row['name']).lower().find('пв3') != -1:
+                        if str(row['name']).lower().find('2-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.01 # не точно
+                        elif str(row['name']).lower().find('3-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.03 # не точно
+                        elif str(row['name']).lower().find('5-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.062
+                        elif str(row['name']).lower().find(' 6-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.071
+                        elif str(row['name']).lower().find('8-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.094
+                        elif str(row['name']).lower().find('16-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.182
+                    elif str(row['name']).lower().find('ппв') != -1:
+                        if str(row['name']).lower().find('2х0,75-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.0219
+                        elif str(row['name']).lower().find('2х1-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.0295
+                        elif str(row['name']).lower().find('2х1,2-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.0343
+                        elif str(row['name']).lower().find('2х1,5-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.0398
+                        elif str(row['name']).lower().find('2х2-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.0525
+                        elif str(row['name']).lower().find('2х2,5-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.062
+                        elif str(row['name']).lower().find('2х3-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.076
+                        elif str(row['name']).lower().find('2х4-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.0924
+                        elif str(row['name']).lower().find('3х0,75-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.0332
+                        elif str(row['name']).lower().find('3х1-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.0446
+                        elif str(row['name']).lower().find('3х1,2-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.0511
+                        elif str(row['name']).lower().find('3х1,5-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.060
+                        elif str(row['name']).lower().find('3х2-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.079
+                        elif str(row['name']).lower().find('3х2,5-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.094
+                        elif str(row['name']).lower().find('3х3-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.112
+                        elif str(row['name']).lower().find('3х4-450') != -1:
+                            wire += float(row['amount']) * 1000 * 0.137
+            elif str(row['code']).lower().find('21.2.03.09') != -1 and str(row['name']).lower().find('провод') == 0:
+                """Группа 21.2.03.09. Провода, не включенные в группы"""
+                if str(row['unit']).lower() == 'т':
+                    wire += float(row['amount']) * 1000
+                elif str(row['unit']).lower() == '1000 м':
+                    if str(row['name']).lower().find('апрн') != -1:
+                        if str(row['name']).lower().find('1x6-660') != -1:
+                            wire += float(row['amount']) * 1000 * 0.038
+                        elif str(row['name']).lower().find('1x10-660') != -1:
+                            wire += float(row['amount']) * 1000 * 0.059
+                        elif str(row['name']).lower().find('1x35-660') != -1:
+                            wire += float(row['amount']) * 1000 * 0.168
+                    elif str(row['name']).lower().find('прн') != -1:
+                        if str(row['name']).lower().find('2,5 мм2') != -1:
+                            wire += float(row['amount']) * 1000 * 0.035
+                    elif str(row['name']).lower().find('прпвм') != -1:
+                        if str(row['name']).lower().find('2x1,2-380') != -1:
+                            wire += float(row['amount']) * 1000 * 0.0417
+                    elif str(row['name']).lower().find('пргн') != -1:
+                        if str(row['name']).lower().find('1x2,5-660') != -1:
+                            wire += float(row['amount']) * 1000 * 0.035
+                        elif str(row['name']).lower().find('1x4-660') != -1:
+                            wire += float(row['amount']) * 1000 * 0.051
+                    elif str(row['name']).lower().find('прто') != -1:
+                        if str(row['name']).lower().find('1x1,5-660') != -1:
+                            wire += float(row['amount']) * 1000 * 0.025
 
         global materials
         materials = [['Наименование основных строительных конструкций, изделий и материалов', 'Единица измерения', 'Всего']]
