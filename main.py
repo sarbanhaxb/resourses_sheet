@@ -130,8 +130,8 @@ class resourses_sheet(QMainWindow):
                     slabs += float(row['amount'])*4.2
             """расчет металлоконструкций"""
             """расчет стальных труб"""
+            # Группа 23.3.03.02. Трубы стальные бесшовные горячедеформированные из углеродистой стали
             if str(row['code']).lower().find('23.3.03.02') != -1 and str(row['name']).lower().find('трубы') == 0:
-                """Группа 23.3.03.02. Трубы стальные бесшовные горячедеформированные из углеродистой стали"""
                 if str(row['code']).lower().find('23.3.03.02-0001') != -1:
                     steel_tubes += float(row['amount'])*1.48/1000
                 elif str(row['code']).lower().find('23.3.03.02-0002') != -1:
@@ -506,8 +506,8 @@ class resourses_sheet(QMainWindow):
                     steel_tubes += float(row['amount']) * 122.51 / 1000
                 elif str(row['code']).lower().find('23.3.03.02-0191') != -1:
                     steel_tubes += float(row['amount']) * 113.44 / 1000
+            # Группа 23.3.06.01. Трубы стальные водогазопроводные оцинкованные легкие
             elif str(row['code']).lower().find('23.3.06.01') != -1 and str(row['name']).lower().find('трубы') == 0:
-                """Группа 23.3.06.01. Трубы стальные водогазопроводные оцинкованные легкие"""
                 if str(row['code']).lower().find('23.3.06.01-0001') != -1:
                     steel_tubes += float(row['amount']) * 0.77 / 1000
                 elif str(row['code']).lower().find('23.3.06.01-0002') != -1:
@@ -532,8 +532,8 @@ class resourses_sheet(QMainWindow):
                     steel_tubes += float(row['amount']) * 11.94 / 1000
                 elif str(row['code']).lower().find('23.3.06.01-0012') != -1:
                     steel_tubes += float(row['amount']) * 14.4 / 1000
+            # Группа 23.3.06.02. Трубы стальные водогазопроводные оцинкованные обыкновенные
             elif str(row['code']).lower().find('23.3.06.02') != -1 and str(row['name']).lower().find('трубы') == 0:
-                """Группа 23.3.06.02. Трубы стальные водогазопроводные оцинкованные обыкновенные"""
                 if str(row['code']).lower().find('23.3.06.02-0001') != -1:
                     steel_tubes += float(row['amount']) * 0.84 / 1000
                 elif str(row['code']).lower().find('23.3.06.02-0002') != -1:
@@ -558,8 +558,8 @@ class resourses_sheet(QMainWindow):
                     steel_tubes += float(row['amount']) * 13.37 / 1000
                 elif str(row['code']).lower().find('23.3.06.02-0012') != -1:
                     steel_tubes += float(row['amount']) * 16.15 / 1000
+            # Группа 23.3.06.03. Трубы стальные водогазопроводные оцинкованные усиленные
             elif str(row['code']).lower().find('23.3.06.03') != -1 and str(row['name']).lower().find('трубы') == 0:
-                """Группа 23.3.06.03. Трубы стальные водогазопроводные оцинкованные усиленные"""
                 if str(row['code']).lower().find('23.3.06.03-0001') != -1:
                     steel_tubes += float(row['amount']) * 0.85 / 1000
                 elif str(row['code']).lower().find('23.3.06.03-0002') != -1:
@@ -584,8 +584,8 @@ class resourses_sheet(QMainWindow):
                     steel_tubes += float(row['amount']) * 16.21 / 1000
                 elif str(row['code']).lower().find('23.3.06.03-0012') != -1:
                     steel_tubes += float(row['amount']) * 19.6 / 1000
+            # Группа 23.3.06.04. Трубы стальные водогазопроводные черные легкие
             elif str(row['code']).lower().find('23.3.06.04') != -1 and str(row['name']).lower().find('трубы') == 0:
-                """Группа 23.3.06.04. Трубы стальные водогазопроводные черные легкие"""
                 if str(row['code']).lower().find('23.3.06.04-0001') != -1:
                     steel_tubes += float(row['amount']) * 0.19 / 1000
                 elif str(row['code']).lower().find('23.3.06.04-0002') != -1:
@@ -620,8 +620,8 @@ class resourses_sheet(QMainWindow):
                     steel_tubes += float(row['amount']) * 11.94 / 1000
                 elif str(row['code']).lower().find('23.3.06.04-0034') != -1:
                     steel_tubes += float(row['amount']) * 14.4 / 1000
+            # Группа 23.3.06.05. Трубы стальные водогазопроводные черные обыкновенные
             elif str(row['code']).lower().find('23.3.06.05') != -1 and str(row['name']).lower().find('трубы') == 0:
-                """Группа 23.3.06.05. Трубы стальные водогазопроводные черные обыкновенные"""
                 if str(row['code']).lower().find('23.3.06.05-0001') != -1:
                     steel_tubes += float(row['amount']) * 0.84 / 1000
                 elif str(row['code']).lower().find('23.3.06.05-0003') != -1:
@@ -646,8 +646,8 @@ class resourses_sheet(QMainWindow):
                     steel_tubes += float(row['amount']) * 13.37 / 1000
                 elif str(row['code']).lower().find('23.3.06.05-0025') != -1:
                     steel_tubes += float(row['amount']) * 16.15 / 1000
+            # Группа 23.3.06.06. Трубы стальные водогазопроводные черные усиленные
             elif str(row['code']).lower().find('23.3.06.06') != -1 and str(row['name']).lower().find('трубы') == 0:
-                """Группа 23.3.06.06. Трубы стальные водогазопроводные черные усиленные"""
                 if str(row['code']).lower().find('23.3.06.06-0001') != -1:
                     steel_tubes += float(row['amount']) * 0.93 / 1000
                 elif str(row['code']).lower().find('23.3.06.06-0002') != -1:
