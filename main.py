@@ -109,20 +109,13 @@ class resourses_sheet(QMainWindow):
                 elif str(row['unit']).lower() == 'т':
                     paints += float(row['amount']) * 1000
             """расчет песка"""
-            if (str(row['code']).lower().find('02.3.01') == 0 or str(row['code']).lower().find('фссц-02.3.01') == 0 or str(row['code']).lower().find('данные заказчика') == 0) and (str(row['name']).lower().find('песок') == 0):
+            if str(row['name']).lower().find('песок') == 0:
                 if str(row['unit']).lower() == 'м3':
-                    sands += float(row['amount'])*1.6*1000
-                elif str(row['unit']).lower() == 'кг':
                     sands += float(row['amount'])
-                elif str(row['unit']).lower() == 'т':
-                    sands += float(row['amount'])*1000
-            if str(row['code']).lower().find('цена заказчика') == 0 and (str(row['name']).lower().find('песок') != -1):
-                if str(row['unit']).lower() == 'м3':
-                    sands += float(row['amount']) * 1.6
                 elif str(row['unit']).lower() == 'кг':
-                    sands += float(row['amount'])
+                    sands += float(row['amount'])/1600
                 elif str(row['unit']).lower() == 'т':
-                    sands += float(row['amount'])*1000
+                    sands += float(row['amount'])/1.6
             """расчет щебня"""
             """расчет плит дорожных"""
             if str(row['code']).lower().find('05.1.08.06-0063') != -1 and str(row['name']).lower().find('плиты дорожные') == 0:
@@ -1041,7 +1034,7 @@ class resourses_sheet(QMainWindow):
         geogrids_nt = ['Нетканая георешетка', 'м2', round(geogrids_nt, 2)]
         thermal = ['Теплоизоляционный материал', 'м3', round(thermal, 2)]
         bituminous = ['Битумно-резиновая мастика', 'кг', round(bituminous, 2)]
-        sands = ['Песок', 'т', round(sands, 2)/1000]
+        sands = ['Песок', 'м3', round(round(sands, 2), 2)]
         geomembranes = ['Геомембрана', 'м2', round(geomembranes, 2)]
         slabs = ['Плиты дорожные', 'т', round(slabs, 2)]
         semens = ['Семена трав', "кг", round(semens, 2)]
